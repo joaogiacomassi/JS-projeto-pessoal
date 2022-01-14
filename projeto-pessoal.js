@@ -6,6 +6,9 @@ function Cliente(nome, cpf, email, saldo) {
     this.depositar = function (valor) {
         this.saldo += valor
     }
+    this.sacar = function (valor) {
+        this.saldo -= valor
+    }
 }
 
 function clientePoupanca(nome,cpf,email,saldo,saldoPoup){
@@ -22,10 +25,20 @@ clientePoupanca.prototype.depositarPoup = function(valor){
     this.saldo -= valor
 }
 
+clientePoupanca.prototype.sacarPoup = function(valor){
+    this.saldoPoup -= valor
+    this.saldo += valor
+}
+
+
 joao.depositarPoup(50)
 
 console.log(`Após o depósito o cliente joao ficou com um saldo de R$${joao.saldo}`)
 console.log(`Após o depósito você possui o valor de R$${joao.saldoPoup} em sua poupança`)
+
+console.log(joao)
+
+joao.sacarPoup(20)
 
 console.log(joao)
 
